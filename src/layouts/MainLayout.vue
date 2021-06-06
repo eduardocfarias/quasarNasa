@@ -59,6 +59,12 @@ const linksData = [
     caption: 'Rovers',
     icon: 'photo_library',
     route: 'rovers'
+  },
+  {
+    title: 'APOD',
+    caption: 'APOD',
+    icon: 'photo_library',
+    route: 'apod'
   }
 ]
 

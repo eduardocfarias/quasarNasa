@@ -146,7 +146,7 @@ export default {
       try {
         this.cameras = null
         this.model = null
-        const { data } = await this.$axios.get(`manifests/${this.rovers}`)
+        const { data } = await this.$axios.get(`mars-photos/api/v1/manifests/${this.rovers}`)
         console.log(data)
         this.manifest = data.photo_manifest
         this.optionsSol = data.photo_manifest.photos.reverse()
@@ -157,7 +157,7 @@ export default {
     async getPhotos () {
       this.photoList = []
       try {
-        const { data } = await this.$axios.get(this.cameras === null ? `rovers/${this.rovers}/photos?sol=${this.solSelected}&page=${this.pagination.page}` : `rovers/${this.rovers}/photos?sol=${this.model.sol}&page=${this.pagination.page}&camera=${this.cameras}`)
+        const { data } = await this.$axios.get(this.cameras === null ? `mars-photos/api/v1/rovers/${this.rovers}/photos?sol=${this.solSelected}&page=${this.pagination.page}` : `mars-photos/api/v1/rovers/${this.rovers}/photos?sol=${this.model.sol}&page=${this.pagination.page}&camera=${this.cameras}`)
         this.photoList = data.photos
         if (this.cameras === null) {
           this.getPhotosFilterCam()
