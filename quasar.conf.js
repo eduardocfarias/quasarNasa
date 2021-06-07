@@ -163,7 +163,7 @@ module.exports = function (/* ctx */) {
             type: 'image/png'
           }
         ],
-        categories: ['education', 'education', 'photo']
+        categories: ['education', 'photo']
       }
     },
 
