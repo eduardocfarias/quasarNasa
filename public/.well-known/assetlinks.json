@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "app.netlify.nasafoto.twa",
+               "sha256_cert_fingerprints": ["33:90:22:D8:C9:01:36:68:01:24:54:F6:51:D5:66:F1:95:34:79:5B:E4:33:81:8F:05:ED:CB:EF:33:73:3C:89"] }
+}]

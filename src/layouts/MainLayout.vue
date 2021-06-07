@@ -49,7 +49,7 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
-    title: 'Homse',
+    title: 'Home',
     caption: '',
     icon: 'home',
     route: 'home'
