@@ -159,7 +159,8 @@ module.exports = function (/* ctx */) {
             sizes: '512x512',
             type: 'image/png'
           }
-        ]
+        ],
+        categories: ['education', 'education', 'photo']
       }
     },
 
