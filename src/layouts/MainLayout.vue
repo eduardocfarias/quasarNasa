@@ -15,7 +15,7 @@
           NASA photo
         </q-toolbar-title>
 
-        <div>NASA photo v0.0.1</div>
+        <div>NASA photo v0.0.2</div>
       </q-toolbar>
     </q-header>
 
@@ -56,13 +56,13 @@ const linksData = [
   },
   {
     title: 'Rovers',
-    caption: 'Rovers',
+    caption: 'Cada rover possui seu próprio conjunto de fotos armazenadas no banco de dados, que podem ser consultadas separadamente.',
     icon: 'photo_library',
     route: 'rovers'
   },
   {
     title: 'APOD',
-    caption: 'APOD',
+    caption: 'O banco de imagem mais popular em todas as agências federais.',
     icon: 'photo_library',
     route: 'apod'
   }

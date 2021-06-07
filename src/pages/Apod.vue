@@ -1,11 +1,6 @@
 <template>
-  <div class="q-pa-md">
-    <div class="q-mb-sm">
-      <q-badge color="teal">
-        Model: {{ date }}
-      </q-badge>
-    </div>
-    <q-btn icon="event" round color="primary">
+  <div class="row justify-center">
+    <q-btn icon="event" rounded color="primary" class="q-ma-md">
       <q-popup-proxy @before-show="updateProxy" transition-show="scale" transition-hide="scale">
         <q-date v-model="startDate" mask="YYYY-MM-DD">
           <div class="row items-center justify-end q-gutter-sm">
@@ -14,8 +9,24 @@
           </div>
         </q-date>
       </q-popup-proxy>
+      <div class="q-ml-sm">
+       Start Date: {{ startDate }}
+      </div>
     </q-btn>
-    <q-btn color="black" class="full-width" label="Pesquisar" @click="getApod" />
+    <q-btn icon="event" rounded color="primary" class="q-ma-md">
+      <q-popup-proxy @before-show="updateProxy" transition-show="scale" transition-hide="scale">
+        <q-date v-model="endDate" mask="YYYY-MM-DD">
+          <div class="row items-center justify-end q-gutter-sm">
+            <q-btn label="Cancel" color="primary" flat v-close-popup />
+            <q-btn label="OK" color="primary" flat @click="save" v-close-popup />
+          </div>
+        </q-date>
+      </q-popup-proxy>
+      <div class="q-ml-sm">
+       End Date: {{ endDate }}
+      </div>
+    </q-btn>
+    <q-btn color="primary" class="full-width" label="Pesquisar" @click="getApod" />
     <div class="q-pa-sm">
     <q-table
       grid
@@ -58,7 +69,8 @@ export default {
   data () {
     return {
       date: '2021-06-05',
-      startDate: '2021-06-05',
+      startDate: '2021-06-01',
+      endDate: '2021-06-05',
       rowsPerPage: 30,
       photoList: [],
       columns: [
@@ -69,15 +81,18 @@ export default {
       ]
     }
   },
-
   methods: {
     async getApod () {
       try {
-        console.log(this.startDate)
         this.photoList = []
-        const { data } = await this.$axios.get(`planetary/apod?api_key=TU6FE4MCPECh0DYgoLrervlGyavPM85fpUzyLfyH&start_date=2021-04-01&thumbs=true&end_date=${this.startDate}`)
+        const { data } = await this.$axios.get('planetary/apod', {
+          params: {
+            start_date: this.startDate,
+            end_date: this.endDate,
+            thumbs: 'true'
+          }
+        })
         this.photoList = data
-        console.log(data)
       } catch (error) {
         console.error(error)
       }
@@ -85,7 +100,6 @@ export default {
     updateProxy () {
       this.proxyDate = this.date
     },
-
     save () {
       this.date = this.proxyDate
     }
