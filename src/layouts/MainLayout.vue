@@ -62,7 +62,7 @@ const linksData = [
   },
   {
     title: 'APOD',
-    caption: 'O banco de imagem mais popular em todas as agências federais.',
+    caption: 'O banco de imagem mais popular da NASA.',
     icon: 'photo_library',
     route: 'apod'
   }
